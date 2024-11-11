@@ -32,22 +32,34 @@ gal.style.maxWidth = `1128px`;
 gal.style.gap = `48px 24px`;
 gal.style.margin = `0 auto`;
 
-images.forEach(image => {
-  const li = document.createElement('li');
-  const img = document.createElement('img');
+function foo(){
+  const newGal = images.forEach(image => {
+    const li = document.createElement('li');
+    const img = document.createElement('img');
 
-  img.setAttribute('width', '360px');
-  img.src = image.url;
-  img.alt = image.alt;
-  li.appendChild(img);
-  gal.appendChild(li);
+    img.setAttribute('width', '360px');
+    img.src = image.url;
+    img.alt = image.alt;
 
-  li.style.display = `flex`;
-  li.style.margin = `0 auto`;
-  li.style.padding = `0`;
+    li.appendChild(img);
+    gal.appendChild(li);
 
-  img.style.maxWidth = `100%`;
-  img.style.height = `auto`;
-  img.style.display = `block`;
-  img.style.margin = `0 auto`;
-});
+    li.style.display = `flex`;
+    li.style.margin = `0 auto`;
+    li.style.padding = `0`;
+
+    img.style.maxWidth = `100%`;
+    img.style.height = `auto`;
+    img.style.display = `block`;
+    img.style.margin = `0 auto`;
+
+    return li;
+  });
+  return newGal;
+};
+
+gal.append(...foo());
+
+
+
+
